@@ -42,23 +42,11 @@ get('/') do
   erb(:home)
 end
 
-get('/rock') do
-  @user_move = "rock"
+get('/:move') do
+  @user_move = params.fetch("move")
   @comp_move = get_rps()
   @outcome = get_outcome(@user_move,@comp_move)
   erb(:rps)
 end
 
-get('/paper') do
-  @user_move = "paper"
-  @comp_move = get_rps()
-  @outcome = get_outcome(@user_move,@comp_move)
-  erb(:rps)
-end
 
-get('/scissors') do
-  @user_move = "scissors"
-  @comp_move = get_rps()
-  @outcome = get_outcome(@user_move,@comp_move)
-  erb(:rps)
-end
